@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.66.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/skeleton.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="alternate" href="index.xml" type="application/rss+xml" title="zhu-han">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<title>Transliteration-based zero-shot domain adaptation for low-resource automatic speech recognition - zhu-han</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="https://schema.org/BlogPosting">
+            <h1 class="entry-title" itemprop="headline">Transliteration-based zero-shot domain adaptation for low-resource automatic speech recognition</h1>
+			
+			<section itemprop="entry-text">
+				<br>
+<h2 id="speech-samples">Speech Samples</h2>
+<br>
+<h3 id="English-to-Cantonese">English to Cantonese</h3>
+<p>The original speech and transcription are in English, whereas the ASR model and transliteration are in Cantonese. In other words, the source language is English and the target langauge is Cantonese.</p>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">English: what have you done with them &emsp;</td>
+<td style="text-align: center">English: what have you done with them &emsp;</td>
+<td style="text-align: center">Cantonese: 或係會頓活站</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/common_voice_en_159756.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/what_have_you_done_with_them.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/或係會頓活站.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">English: good bye said the boy</td>
+<td style="text-align: center">English: good bye said the boy</td>
+<td style="text-align: center">Cantonese: 娟拜石背</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/common_voice_en_490441.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/good_bye_said_the_boy.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/娟拜石背.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">English: you don't like him</td>
+<td style="text-align: center">English: you don't like him</td>
+<td style="text-align: center">Cantonese: 如準禮謙</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/common_voice_en_2223593.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/you_dont_like_him.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/English-to-Cantonese/如準禮謙.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+
+<br>
+
+<h3 id="Mandarin-to-Cantonese">The original speech and transcription are in Mandarin, whereas the ASR model and transliteration are in Cantonese. In other words, the source language is English and the target langauge is Cantonese.</h3>
+<p>The original speech is in Mandarin, whereas the ASR model and the transliteration are in Cantonese.</p>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Mandarin: 地势西高东低</td>
+<td style="text-align: center">Mandarin: 地势西高东低</td>
+<td style="text-align: center">Cantonese: 啲書詩交東啲</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/common_voice_zh-CN_22224754.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/地势西高东低.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/啲書詩交東啲.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Mandarin: 其后共有五千人</td>
+<td style="text-align: center">Mandarin: 其后共有五千人</td>
+<td style="text-align: center">Cantonese: 市口供繞胡車人</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/common_voice_zh-CN_22224706.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/其后共有五千人.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/市口供繞胡車人.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+<br>
+<table><thead>
+<tr>
+<th style="text-align: center">Original speech</th>
+<th style="text-align: center">Synthesized speech (transcription)</th>
+<th style="text-align: center">Synthesized speech (transliteration)</th>
+</tr></thead><tbody>
+<tr>
+<td style="text-align: center">Mandarin: 我也无法停止担心</td>
+<td style="text-align: center">Mandarin: 我也无法停止担心</td>
+<td style="text-align: center">Cantonese: 果夜壺化天住單線</td>
+</tr>
+<tr>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/common_voice_zh-CN_18593426.wav" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/我也无法停止担心.mp3" autoplay/></audio></td>
+<td style="text-align: center"><audio controls="controls" ><source src="./speech/Mandarin-to-Cantonese/果夜壺化天住單線.mp3" autoplay/></audio></td>
+</tr>
+</tbody></table>
+			</section>
+		</article>
+	</main>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-139981676-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+ <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+ <script type="text/javascript" async
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+ </script>
+
+
+
+
+</body>
+</html>
