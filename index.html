@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Han Zhu (朱涵)</title>
+  <meta name="description" content="Han Zhu's academic homepage. Research on text-to-speech (TTS) and automatic speech recognition (ASR).">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base target="_blank">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 15px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: "Trebuchet MS", Helvetica, "Arial", sans-serif;
+      color: #3a4145;
+      line-height: 1.7;
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #224b8d;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover { color: #1565c0; text-decoration: underline; }
+
+    h1, h2, h3 { font-weight: 600; line-height: 1.3; }
+    h1 { font-size: 1.6em; margin: 0.8em 0 0.4em; border-bottom: 1px solid #eee; padding-bottom: 0.3em; }
+    h2 { font-size: 1.3em; margin: 0.6em 0 0.3em; }
+
+    ul { list-style: disc; padding-left: 1.2em; }
+    li { margin-bottom: 0.4em; }
+
+    img { max-width: 100%; height: auto; }
+
+    /* ===== Masthead (Top Navigation) ===== */
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 0 1em;
+    }
+    .masthead__inner {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .masthead__title {
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #3a4145;
+      text-decoration: none;
+    }
+    .masthead__title:hover { color: #224b8d; text-decoration: none; }
+
+    .masthead__nav {
+      display: flex;
+      gap: 1.2em;
+      font-size: 0.85em;
+    }
+    .masthead__nav a {
+      color: #3a4145;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .masthead__nav a:hover { color: #224b8d; text-decoration: none; }
+
+    /* ===== Main Layout ===== */
+    #main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5em 1em;
+      display: flex;
+      gap: 2em;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 65px;
+      align-self: flex-start;
+    }
+    .author-profile {
+      text-align: left;
+    }
+    .author__avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 0 0.8em;
+      border: 1px solid #eee;
+    }
+    .author__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .author__name {
+      font-size: 1.15em;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+      color: #3a4145;
+    }
+    .author__bio {
+      font-size: 0.82em;
+      color: #666;
+      margin-bottom: 0.5em;
+    }
+    .author__location {
+      font-size: 0.8em;
+      color: #555;
+      margin-bottom: 0.8em;
+    }
+    .author__location i { margin-right: 0.3em; }
+
+    .author__urls {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      font-size: 0.82em;
+    }
+    .author__urls li {
+      margin-bottom: 0.4em;
+    }
+    .author__urls a {
+      color: #3a4145;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+    .author__urls a:hover { color: #224b8d; }
+    .author__urls i, .author__urls .ai { width: 1.2em; text-align: center; }
+
+    /* ===== Page Content ===== */
+    .page {
+      flex: 1;
+      min-width: 0;
+      max-width: 900px;
+    }
+    .page__content {
+      font-size: 0.93em;
+    }
+    .page__content p { margin-bottom: 0.7em; }
+
+    /* ===== Anchor offset for sticky header ===== */
+    .anchor {
+      display: block;
+      position: relative;
+      top: -70px;
+      visibility: hidden;
+    }
+
+    /* ===== News Section ===== */
+    .news-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .news-list li {
+      margin-bottom: 0.5em;
+      padding-left: 0;
+    }
+
+    /* ===== Publication Subsection Title ===== */
+    .pub-section-title {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin: 1.6em 0 0.8em;
+      padding: 0.45em 0.8em;
+      border-left: 4px solid #224b8d;
+      background: #f0f4fb;
+      border-radius: 0 6px 6px 0;
+      color: #224b8d;
+    }
+
+    /* ===== Publication Section ===== */
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .pub-list > li {
+      margin-bottom: 1em;
+      padding-left: 0;
+      line-height: 1.6;
+    }
+    .pub-venue {
+      display: inline-block;
+      font-weight: 700;
+      color: #3a4145;
+      margin-right: 0.2em;
+    }
+    .pub-title {
+      font-weight: 600;
+    }
+    .pub-authors {
+      color: #555;
+      font-size: 0.92em;
+    }
+    .pub-authors strong {
+      color: #3a4145;
+      text-decoration: underline;
+    }
+    .pub-links {
+      margin-top: 0.15em;
+    }
+    .pub-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2em;
+      margin-right: 0.6em;
+      font-size: 0.85em;
+      color: #555;
+    }
+    .pub-links a:hover { color: #224b8d; }
+
+    /* ===== Open Source Section ===== */
+    .project-card {
+      display: flex;
+      gap: 1.2em;
+      align-items: flex-start;
+      margin-bottom: 1.2em;
+      padding: 1em;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      background: #fafbfc;
+    }
+    .project-card > img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .project-info h3 {
+      font-size: 1.05em;
+      margin-bottom: 0.3em;
+    }
+    .project-info p {
+      font-size: 0.88em;
+      color: #555;
+      margin-bottom: 0.4em;
+    }
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4em;
+    }
+    .project-badges img {
+      height: 20px;
+    }
+
+    /* ===== Education / Experience ===== */
+    .edu-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .edu-list li {
+      margin-bottom: 0.6em;
+      padding-left: 0;
+    }
+    .edu-time {
+      font-style: italic;
+      color: #888;
+      font-size: 0.9em;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 800px) {
+      #main {
+        flex-direction: column;
+        padding: 1em;
+      }
+      .sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 1.5em;
+      }
+      .author-profile {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1em;
+        text-align: left;
+      }
+      .author__avatar {
+        width: 100px;
+        height: 100px;
+        margin: 0;
+      }
+      .author__urls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em 1.2em;
+        width: 100%;
+      }
+      .masthead__nav {
+        gap: 0.6em;
+        font-size: 0.78em;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .masthead__nav { display: none; }
+      .project-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Masthead ===== -->
+<nav class="masthead">
+  <div class="masthead__inner">
+    <a class="masthead__title" href="/" target="_self">Han Zhu</a>
+    <div class="masthead__nav">
+      <a href="#about-me" target="_self">About</a>
+      <a href="#news" target="_self">News</a>
+      <a href="#publications" target="_self">Selected Publications</a>
+      <a href="#open-source" target="_self">Open Source Projects</a>
+      <a href="#education" target="_self">Educations</a>
+      <a href="#experience" target="_self">Work Experiences</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Main ===== -->
+<div id="main">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="author-profile">
+      <div class="author__avatar">
+        <img src="images/profile.jpg" alt="Han Zhu">
+      </div>
+      <div>
+        <div class="author__name">Han Zhu (朱涵)</div>
+        <div class="author__bio">Focusing on speech generation and understanding.</div>
+        <div class="author__location"><i class="fas fa-building"></i> Xiaomi Corp.</div>
+        <div class="author__location"><i class="fas fa-map-marker-alt"></i> Beijing, China</div>
+      </div>
+      <ul class="author__urls">
+        <li><a href="mailto:zhuhanmail@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=wIuQaKQAAAAJ"><i class="ai ai-google-scholar"></i> Google Scholar</a></li>
+        <li><a href="https://github.com/zhu-han"><i class="fab fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Page Content -->
+  <article class="page">
+    <div class="page__content">
+
+      <span class="anchor" id="about-me"></span>
+      <p>
+        I am currently a member of the Next-gen Kaldi team at Xiaomi Corp., working under the supervision of <a href="https://scholar.google.com/citations?user=y_-5FWAAAAAJ&hl=en">Dr. Daniel Povey</a>.
+      </p>
+      <p>
+        I received my Ph.D. degree from the Institute of Acoustics, Chinese Academy of Sciences (IOACAS) and the University of Chinese Academy of Sciences (UCAS) in 2024, and my bachelor’s degree from the University of Electronic Science and Technology of China (UESTC) in 2019.
+      </p>
+      <p>
+        My research interests primarily focus on text-to-speech (TTS) and automatic speech recognition (ASR). 
+        My work has been published in top speech and AI venues, including IEEE/ACM TASLP, INTERSPEECH, ICASSP, ASRU, ACL, and ICLR. 
+        I built open-source TTS projects <a href="https://github.com/k2-fsa/OmniVoice">OmniVoice</a> <a href="https://github.com/k2-fsa/OmniVoice"><img src="https://img.shields.io/github/stars/k2-fsa/OmniVoice?style=social" alt="Stars"></a> and <a href="https://github.com/k2-fsa/ZipVoice">ZipVoice</a> <a href="https://github.com/k2-fsa/ZipVoice"><img src="https://img.shields.io/github/stars/k2-fsa/ZipVoice?style=social" alt="Stars"></a>.
+      </p>
+
+      <!-- News -->
+      <span class="anchor" id="news"></span>
+      <h1>🔥 News</h1>
+      <ul class="news-list">
+        <li><em>2026.04</em>: &nbsp;🎉 We released <a href="https://arxiv.org/abs/2604.00688">OmniVoice</a>, a SOTA voice-cloning TTS model supporting <strong>600+</strong> languages.</li>
+        <li><em>2026.04</em>: &nbsp;🎉 <a href="https://arxiv.org/abs/2507.09318">ZipVoice-Dialog</a> is accepted by <strong>ACL 2026</strong> (Findings).</li>
+        <li><em>2026.01</em>: &nbsp;🎉 <a href="https://arxiv.org/abs/2512.23278">Flow2GAN</a> is accepted by <strong>ICLR 2026</strong>.</li>
+        <li><em>2025.08</em>: &nbsp;🎉 <a href="https://arxiv.org/abs/2506.13053">ZipVoice</a> is accepted by <strong>ASRU 2025</strong>.</li>
+        <li><em>2025.01</em>: &nbsp;🎉 <a href="https://arxiv.org/abs/2410.05101">CR-CTC</a> is accepted by <strong>ICLR 2025</strong>.</li>
+        <li><em>2024.07</em>: &nbsp;😄 I joined the Next-gen Kaldi team at Xiaomi Corp.</li>
+        <li><em>2024.06</em>: &nbsp;🎓 I received my Ph.D. degree from the Institute of Acoustics, Chinese Academy of Sciences (IOACAS) and the University of Chinese Academy of Sciences (UCAS).</li>
+      </ul>
+
+      <!-- Publications -->
+      <span class="anchor" id="publications"></span>
+      <h1>📝 Selected Publications</h1>
+      <p style="margin-bottom:0.8em; color:#666; font-size:0.9em;">
+        Full list on <a href="https://scholar.google.com/citations?user=wIuQaKQAAAAJ">Google Scholar</a>.
+      </p>
+
+      <h2 class="pub-section-title">🔊 Text-to-Speech (TTS)</h2>
+      <ul class="pub-list">
+
+        <li>
+          <span class="pub-venue">[Preprint 2026]</span>
+          <span class="pub-title">OmniVoice: Towards Omnilingual Zero-Shot Text-to-Speech with Diffusion Language Models</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, L Ye, W Kang, Z Yao, L Guo, F Kuang, Z Han, W Zhuang, L Lin, D Povey</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2604.00688"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="https://github.com/k2-fsa/OmniVoice"><i class="fab fa-github"></i> Code</a>
+            <a href="omnivoice/"><i class="fas fa-headphones"></i> Demo</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[ASRU 2025]</span>
+          <span class="pub-title">ZipVoice: Fast and High-Quality Zero-Shot Text-to-Speech with Flow Matching</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, W Kang, Z Yao, L Guo, F Kuang, Z Li, W Zhuang, L Lin, D Povey</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2506.13053"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="https://github.com/k2-fsa/ZipVoice"><i class="fab fa-github"></i> Code</a>
+            <a href="https://zipvoice.github.io/"><i class="fas fa-headphones"></i> Demo</a>
+          </div>
+        </li>
+  
+        <li>
+          <span class="pub-venue">[ACL 2026 Findings]</span>
+          <span class="pub-title">ZipVoice-Dialog: Non-Autoregressive Spoken Dialogue Generation with Flow Matching</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, W Kang, L Guo, Z Yao, F Kuang, W Zhuang, Z Li, Z Han, D Zhang, X Zhang, X Song, L Ye, L Lin, D Povey</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2507.09318"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="https://github.com/k2-fsa/ZipVoice"><i class="fab fa-github"></i> Code</a>
+            <a href="https://zipvoice-dialog.github.io/"><i class="fas fa-headphones"></i> Demo</a>
+            <a href="https://huggingface.co/datasets/k2-fsa/OpenDialog"><i class="fas fa-database"></i> Dataset</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[ICLR 2026]</span>
+          <span class="pub-title">Flow2GAN: Hybrid Flow Matching and GAN with Multi-Resolution Network for Few-step High-Fidelity Audio Generation</span><br>
+          <span class="pub-authors">Z Yao, W Kang, <strong>H Zhu</strong>, L Guo, L Ye, F Kuang, W Zhuang, Z Li, Z Han, L Lin, D Povey</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2512.23278"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="https://github.com/k2-fsa/Flow2GAN"><i class="fab fa-github"></i> Code</a>
+            <a href="https://flow2gan.github.io/"><i class="fas fa-headphones"></i> Demo</a>
+          </div>
+        </li>
+
+      </ul>
+
+      <h2 class="pub-section-title">🎙️ Automatic Speech Recognition (ASR)</h2>
+      <ul class="pub-list">
+
+        <li>
+          <span class="pub-venue">[IEEE/ACM TASLP 2023]</span>
+          <span class="pub-title">Alternative Pseudo-Labeling for Semi-Supervised Automatic Speech Recognition</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, D Gao, G Cheng, D Povey, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2308.06547"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[IEEE/ACM TASLP 2024]</span>
+          <span class="pub-title">Boosting Cross-Domain Speech Recognition with Self-Supervision</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, G Cheng, J Wang, W Hou, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2206.09783"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[INTERSPEECH 2022]</span>
+          <span class="pub-title">Decoupled Federated Learning for ASR with Non-IID Data</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, J Wang, G Cheng, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2206.09102"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[INTERSPEECH 2022]</span>
+          <span class="pub-title">Wav2vec-S: Semi-Supervised Pre-Training for Low-Resource ASR</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, L Wang, J Wang, G Cheng, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2110.04484"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[INTERSPEECH 2020]</span>
+          <span class="pub-title">Domain Adaptation Using Class Similarity for Robust Speech Recognition</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, J Zhao, Y Ren, L Wang, P Zhang</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2011.02782"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[INTERSPEECH 2019]</span>
+          <span class="pub-title">Multi-Accent Adaptation Based on Gate Mechanism</span><br>
+          <span class="pub-authors"><strong>H Zhu</strong>, L Wang, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2011.02774"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[ICLR 2025]</span>
+          <span class="pub-title">CR-CTC: Consistency Regularization on CTC for Improved Speech Recognition</span><br>
+          <span class="pub-authors">Z Yao, W Kang, X Yang, F Kuang, L Guo, <strong>H Zhu</strong>, Z Jin, Z Li, L Lin, D Povey</span>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2410.05101"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="https://github.com/k2-fsa/icefall"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[IEEE/ACM TASLP 2026]</span>
+          <span class="pub-title">Pseudo-Labeling Based Unsupervised Domain Adaptation for LLM-Based ASR</span><br>
+          <span class="pub-authors">L Zheng, <strong>H Zhu</strong>, X Wang, X Li, T Li, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/taslpro.2026.3654830"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[ICASSP 2025]</span>
+          <span class="pub-title">Hybrid Pseudo-Labeling for Semi-Supervised Automatic Speech Recognition</span><br>
+          <span class="pub-authors">L Zheng, <strong>H Zhu</strong>, C Yang, X Wang, G Cheng, T Li</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/ICASSP49660.2025.10890841"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[IEEE SPL 2024]</span>
+          <span class="pub-title">Unsupervised Domain Adaptation on End-to-End Multi-Talker Overlapped Speech Recognition</span><br>
+          <span class="pub-authors">L Zheng, <strong>H Zhu</strong>, S Tian, Q Zhao, T Li</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/LSP.2024.3487795"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[IEEE/ACM TASLP 2022]</span>
+          <span class="pub-title">Exploiting Adapters for Cross-Lingual Low-Resource Speech Recognition</span><br>
+          <span class="pub-authors">W Hou, <strong>H Zhu</strong>, Y Wang, J Wang, T Qin, R Xu, T Shinozaki</span>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1109/TASLP.2021.3138674"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+        <li>
+          <span class="pub-venue">[ICASSP 2021]</span>
+          <span class="pub-title">Pre-Training Transformer Decoder for End-to-End ASR Model with Unpaired Text Data</span><br>
+          <span class="pub-authors">C Gao, G Cheng, R Yang, <strong>H Zhu</strong>, P Zhang, Y Yan</span>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/9414080/"><i class="fas fa-file-alt"></i> Paper</a>
+          </div>
+        </li>
+
+      </ul>
+      <span class="anchor" id="open-source"></span>
+      <h1>💻 Open Source Projects</h1>
+
+      <div class="project-card">
+        <img src="omnivoice/pics/omnivoice.jpg" alt="OmniVoice">
+        <div class="project-info">
+          <h3><a href="https://github.com/k2-fsa/OmniVoice">OmniVoice</a></h3>
+          <p>An omnilingual zero-shot TTS model scaling to 600+ languages, powered by a novel diffusion language model-style architecture.</p>
+          <div class="project-badges">
+            <a href="https://github.com/k2-fsa/OmniVoice"><img src="https://img.shields.io/github/stars/k2-fsa/OmniVoice?style=social" alt="Stars"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div style="width:80px;height:80px;border-radius:8px;background:linear-gradient(135deg,#2196F3 0%,#1565C0 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.0em;font-weight:700;flex-shrink:0;">ZipVoice⚡️</div>
+        <div class="project-info">
+          <h3><a href="https://github.com/k2-fsa/ZipVoice">ZipVoice</a></h3>
+          <p>A series of fast and high-quality zero-shot text-to-speech models built with the flow matching objective and the Zipformer backbone, including ZipVoice, ZipVoice-Distill and ZipVoice-Dialog.</p>
+          <div class="project-badges">
+            <a href="https://github.com/k2-fsa/ZipVoice"><img src="https://img.shields.io/github/stars/k2-fsa/ZipVoice?style=social" alt="Stars"></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <span class="anchor" id="education"></span>
+      <h1>📖 Educations</h1>
+      <ul class="edu-list">
+        <li>
+          <strong>Ph.D.</strong>, Institute of Acoustics, Chinese Academy of Sciences (IOACAS), and University of Chinese Academy of Sciences (UCAS)
+          <br><span class="edu-time">2019.09 – 2024.06</span>
+        </li>
+        <li>
+          <strong>B.Eng.</strong>, University of Electronic Science and Technology of China (UESTC)
+          <br><span class="edu-time">2015.09 – 2019.06</span>
+        </li>
+      </ul>
+
+
+      <!-- Work Experience -->
+      <span class="anchor" id="experience"></span>
+      <h1>💼 Work Experiences</h1>
+      <ul class="edu-list">
+        <li>
+          <strong>Next-gen Kaldi Team, Xiaomi Corp.</strong>
+          <br>Supervised by <a href="https://scholar.google.com/citations?user=y_-5FWAAAAAJ&hl=en">Dr. Daniel Povey</a>
+          <br><span class="edu-time">2024.07 – Present</span>
+        </li>
+      </ul>
+
+    </div>
+  </article>
+
+</div>
+
+<!-- Smooth scroll for anchor links -->
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
